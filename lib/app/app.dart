@@ -22,7 +22,6 @@ class _MyAppState extends State<MyApp> {
       designSize: const Size(360, 844),
       minTextAdapt: true,
       splitScreenMode: true,
-      // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (_, child) {
         return const MaterialApp(
           home: TestScreen(),
