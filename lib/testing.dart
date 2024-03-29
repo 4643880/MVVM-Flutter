@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mvvm_flutter_app/app/app.dart';
 import 'package:mvvm_flutter_app/presentation/resources/colors_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/font_manager.dart';
+import 'package:mvvm_flutter_app/presentation/resources/styles_manager.dart';
 
 class TestScreen extends StatelessWidget {
   const TestScreen({super.key});
@@ -18,11 +19,9 @@ class TestScreen extends StatelessWidget {
       body: Center(
         child: Text(
           "Test Screen",
-          style: TextStyle(
-            fontSize: FontSize.kFontSize30,
-            fontFamily: FontConstants.kFontFamily,
-            fontWeight: FontWeightManager.kLight,
-            color: ColorManager.error,
+          style: AppTextStyleManager.getRegularStyle(
+            color: ColorManager.black,
+            fontSize: FontSize.kFontSize16,
           ),
         ),
       ),
