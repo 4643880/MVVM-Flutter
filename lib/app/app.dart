@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mvvm_flutter_app/presentation/resources/routes_manager.dart';
+import 'package:mvvm_flutter_app/presentation/resources/theme_manager.dart';
 import 'package:mvvm_flutter_app/testing.dart';
 
 class MyApp extends StatefulWidget {
@@ -23,8 +25,11 @@ class _MyAppState extends State<MyApp> {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
-        return const MaterialApp(
-          home: TestScreen(),
+        return MaterialApp(
+          home: const TestScreen(),
+          theme: getApplicationTheme(),
+          onGenerateRoute: RouteGenerator.getRoute,
+          initialRoute: Routes.splashRoute,
         );
       },
     );

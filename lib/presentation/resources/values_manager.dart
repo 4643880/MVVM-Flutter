@@ -1,17 +1,17 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppBorderRadius {
-  final double kBorderRadius4 = 4.r;
-  final double kBorderRadius2 = 2.r;
-  final double kBorderRadius8 = 8.r;
-  final double kBorderRadius10 = 10.r;
-  final double kBorderRadius12 = 12.r;
-  final double kBorderRadius16 = 16.r;
-  final double kBorderRadius20 = 20.r;
-  final double kBorderRadius24 = 24.r;
-  final double kBorderRadius40 = 40.r;
-  final double kBorderRadius50 = 50.r;
-  final double kBorderRadius80 = 80.r;
+  static final double kBorderRadius4 = 4.r;
+  static final double kBorderRadius2 = 2.r;
+  static final double kBorderRadius8 = 8.r;
+  static final double kBorderRadius10 = 10.r;
+  static final double kBorderRadius12 = 12.r;
+  static final double kBorderRadius16 = 16.r;
+  static final double kBorderRadius20 = 20.r;
+  static final double kBorderRadius24 = 24.r;
+  static final double kBorderRadius40 = 40.r;
+  static final double kBorderRadius50 = 50.r;
+  static final double kBorderRadius80 = 80.r;
 }
 
 class AppMargin {

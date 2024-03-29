@@ -30,7 +30,7 @@ class AppTextStyleManager {
   }
 
   // Light Style
-  TextStyle getLightStyle({
+  static TextStyle getLightStyle({
     double? fontSize,
     required Color color,
   }) {
@@ -43,7 +43,7 @@ class AppTextStyleManager {
   }
 
   // Bold Style
-  TextStyle getBoldStyle({
+  static TextStyle getBoldStyle({
     double? fontSize,
     required Color color,
   }) {
@@ -56,7 +56,7 @@ class AppTextStyleManager {
   }
 
   // Semi Bold Style
-  TextStyle getSemiBoldStyle({
+  static TextStyle getSemiBoldStyle({
     double? fontSize,
     required Color color,
   }) {
@@ -69,7 +69,7 @@ class AppTextStyleManager {
   }
 
   // Medium Style
-  TextStyle getMediumStyle({
+  static TextStyle getMediumStyle({
     double? fontSize,
     required Color color,
   }) {
