@@ -37,12 +37,28 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_screenutil: ^5.9.0
   flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.0
 
 
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/images/appIcon.png"
+
+
+flutter_native_splash:
+  background_image: "assets/images/splash.png"
+  # background_color: "#ED9728"
+  android_12:
+  image: assets/images/splash.png # for android 12
+  color: "#ffffff"
+#  icon_background_color: "#2445CD"
+  android: true
+  ios: true
+  ios_content_mode: center
+  android_gravity: fill 
+  # android_gravity: center
+  fullscreen: true
 
 
 dev_dependencies:
