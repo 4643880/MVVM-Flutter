@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
       splitScreenMode: true,
       builder: (_, child) {
         return MaterialApp(
-          home: const TestScreen(),
+          debugShowCheckedModeBanner: false,
           theme: getApplicationTheme(),
           onGenerateRoute: RouteGenerator.getRoute,
           initialRoute: Routes.splashRoute,

@@ -7,7 +7,6 @@ import 'package:mvvm_flutter_app/presentation/screens/onboarding/onboarding_scre
 import 'package:mvvm_flutter_app/presentation/screens/register/register_screen.dart';
 import 'package:mvvm_flutter_app/presentation/screens/splash/splash_screen.dart';
 import 'package:mvvm_flutter_app/presentation/screens/store_details/store_details.dart';
-import 'package:mvvm_flutter_app/testing.dart';
 
 class Routes {
   static const String splashRoute = "/";
@@ -23,9 +22,7 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case Routes.splashRoute:
-        return MaterialPageRoute(
-          builder: (_) => const SplashScreen(),
-        );
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.loginRoute:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.onBoardingRoute:
