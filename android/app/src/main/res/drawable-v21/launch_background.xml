@@ -6,5 +6,6 @@
     <item>
         <bitmap android:gravity="fill" android:src="@drawable/splash"/>
     </item> -->
+    <!-- remove white screen for android, res>values>color.xml -->
     <item android:drawable="@color/primary"/>
 </layer-list>
