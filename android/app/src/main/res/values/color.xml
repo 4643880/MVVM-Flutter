@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#ED9728</color>
+</resources>
+
+<!-- Worked in two files main>res>drawable>launch_background.xml -->
+<!-- Worked in two files main>res>values>created color.xml -->
