@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mvvm_flutter_app/domain/models/onboarding_model.dart';
 import 'package:mvvm_flutter_app/presentation/resources/assets_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/colors_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/routes_manager.dart';
@@ -41,6 +42,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           img: ImageAssets.onboardingLogo4,
         ),
       ];
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -181,14 +188,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       return SvgPicture.asset(ImageAssets.solidCircleIc); // unselected slider
     }
   }
-}
-
-class SliderData {
-  String title;
-  String subTitle;
-  String img;
-
-  SliderData({required this.title, required this.subTitle, required this.img});
 }
 
 class OnBoardingPage extends StatelessWidget {

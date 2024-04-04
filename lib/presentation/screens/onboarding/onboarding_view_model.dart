@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 
 import 'package:mvvm_flutter_app/domain/models/onboarding_model.dart';
 import 'package:mvvm_flutter_app/presentation/base/base_view_model.dart';
+import 'package:mvvm_flutter_app/presentation/resources/assets_manager.dart';
+import 'package:mvvm_flutter_app/presentation/resources/strings_manager.dart';
 import 'package:mvvm_flutter_app/presentation/screens/onboarding/onboarding_screen.dart';
 
 class OnBoardingViewModel
@@ -12,34 +14,23 @@ class OnBoardingViewModel
         BaseViewModel,
         OnbaordingViewModelInputs,
         OnbaordingViewModelOutputs {
-  // =========================================
-  // Stream Controllers Starts Here
-  // =========================================
-  final StreamController _streamController = StreamController<SliderViewData>();
-  // =========================================
-  // Stream Controllers Starts Here
-  // =========================================
+  late final StreamController _streamController;
 
-  // =========================================
-  // Input Base View Model Starts Here
-  // =========================================
+  int currentIndex = 0;
+  late final List<SliderData> _list;
+
   @override
   void dispose() {
-    // TODO: implement dispose
+    _streamController.close();
   }
 
   @override
   void start() {
-    // TODO: implement start
+    _streamController = StreamController<SliderViewData>();
+    _list = _getSliderData();
+    _postDataToView();
   }
 
-  // =========================================
-  // Input Base View Model Ends Here
-  // =========================================
-
-  // =========================================
-  // Input Onboarding View Model Starts Here
-  // =========================================
   @override
   void goNext() {
     // TODO: implement goNext
@@ -56,25 +47,44 @@ class OnBoardingViewModel
   }
 
   @override
-  // TODO: implement inputOfSliderData
-  Sink get inputOfSliderData => throw UnimplementedError();
-
-  // =========================================
-  // Input Onboarding View Model Ends Here
-  // =========================================
-
-  // =========================================
-  // Output Onboarding View Model Starts Here
-  // =========================================
+  Sink get inputOfSliderData => _streamController.sink;
 
   @override
-  // TODO: implement outputOfSliderViewData
   Stream<SliderViewData> get outputOfSliderViewData =>
-      throw UnimplementedError();
+      _streamController.stream.map((sliderViewData) => sliderViewData);
 
-  // =========================================
-  // Output Onboarding View Model Ends Here
-  // =========================================
+  List<SliderData> _getSliderData() => [
+        SliderData(
+          title: AppStrings.onBoardingTitle1,
+          subTitle: AppStrings.onBoardingSubTitle1,
+          img: ImageAssets.onboardingLogo1,
+        ),
+        SliderData(
+          title: AppStrings.onBoardingTitle2,
+          subTitle: AppStrings.onBoardingSubTitle2,
+          img: ImageAssets.onboardingLogo2,
+        ),
+        SliderData(
+          title: AppStrings.onBoardingTitle3,
+          subTitle: AppStrings.onBoardingSubTitle3,
+          img: ImageAssets.onboardingLogo3,
+        ),
+        SliderData(
+          title: AppStrings.onBoardingTitle4,
+          subTitle: AppStrings.onBoardingSubTitle4,
+          img: ImageAssets.onboardingLogo4,
+        ),
+      ];
+
+  _postDataToView() {
+    inputOfSliderData.add(
+      SliderViewData(
+        sliderData: sliderData,
+        numberOfSlider: numberOfSlider,
+        currentIndex: currentIndex,
+      ),
+    );
+  }
 }
 
 abstract class OnbaordingViewModelInputs {
