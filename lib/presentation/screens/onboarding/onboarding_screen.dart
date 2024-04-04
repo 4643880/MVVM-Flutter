@@ -7,6 +7,7 @@ import 'package:mvvm_flutter_app/presentation/resources/colors_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/routes_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/strings_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/values_manager.dart';
+import 'package:mvvm_flutter_app/presentation/screens/onboarding/onboarding_view_model.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   @override
@@ -15,37 +16,21 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final PageController _pageController = PageController(initialPage: 0);
+  OnBoardingViewModel _viewModel = OnBoardingViewModel();
 
-  int currentIndex = 0;
+  _bind() {
+    _viewModel.start();
+  }
 
-  late final List<SliderData> _list = _getSliderData();
-
-  List<SliderData> _getSliderData() => [
-        SliderData(
-          title: AppStrings.onBoardingTitle1,
-          subTitle: AppStrings.onBoardingSubTitle1,
-          img: ImageAssets.onboardingLogo1,
-        ),
-        SliderData(
-          title: AppStrings.onBoardingTitle2,
-          subTitle: AppStrings.onBoardingSubTitle2,
-          img: ImageAssets.onboardingLogo2,
-        ),
-        SliderData(
-          title: AppStrings.onBoardingTitle3,
-          subTitle: AppStrings.onBoardingSubTitle3,
-          img: ImageAssets.onboardingLogo3,
-        ),
-        SliderData(
-          title: AppStrings.onBoardingTitle4,
-          subTitle: AppStrings.onBoardingSubTitle4,
-          img: ImageAssets.onboardingLogo4,
-        ),
-      ];
+  @override
+  void initState() {
+    _bind();
+    super.initState();
+  }
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    _viewModel.dispose();
     super.dispose();
   }
 
@@ -163,22 +148,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         ],
       ),
     );
-  }
-
-  int _getPreviousIndex() {
-    int previousIndex = currentIndex--;
-    if (previousIndex == -1) {
-      currentIndex = _list.length - 1;
-    }
-    return currentIndex;
-  }
-
-  int _getNextIndex() {
-    int nextIndex = currentIndex++;
-    if (nextIndex >= _list.length) {
-      currentIndex = 0;
-    }
-    return currentIndex;
   }
 
   Widget _getProperCircle(int index, int _currentIndex) {
