@@ -36,60 +36,63 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorManager.white,
-      appBar: AppBar(
-        backgroundColor: ColorManager.white,
-        elevation: AppSize.kSize0,
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: ColorManager.white,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark,
-        ),
-      ),
-      body: PageView.builder(
-        controller: _pageController,
-        itemCount: _list.length,
-        onPageChanged: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
-        itemBuilder: (context, index) {
-          return OnBoardingPage(
-            sliderData: _list[currentIndex],
-          );
-        },
-      ),
-      bottomSheet: Container(
-        color: ColorManager.white,
-        height: AppSize.kSize100,
-        child: Column(
-          children: [
-            Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(
-                      context,
-                      Routes.loginRoute,
-                    );
-                  },
-                  child: Text(
-                    AppStrings.skip,
-                    style: Theme.of(context).textTheme.titleSmall,
-                    textAlign: TextAlign.end,
-                  ),
-                )),
-            // add layout for indicator and arrows
-            _getBottomSheetWidget(),
-          ],
-        ),
-      ),
+    return StreamBuilder<SliderViewData>(
+      stream: _viewModel.outputOfSliderViewData,
+      builder: (context, snapshot) => snapshot.data == null
+          ? const SizedBox()
+          : Scaffold(
+              backgroundColor: ColorManager.white,
+              appBar: AppBar(
+                backgroundColor: ColorManager.white,
+                elevation: AppSize.kSize0,
+                systemOverlayStyle: SystemUiOverlayStyle(
+                  statusBarColor: ColorManager.white,
+                  statusBarBrightness: Brightness.dark,
+                  statusBarIconBrightness: Brightness.dark,
+                ),
+              ),
+              body: PageView.builder(
+                controller: _pageController,
+                itemCount: snapshot.data?.numberOfSlider,
+                onPageChanged: (value) {
+                  _viewModel.onPageChange(value);
+                },
+                itemBuilder: (context, index) {
+                  return OnBoardingPage(
+                    sliderData: snapshot.data!.sliderData,
+                  );
+                },
+              ),
+              bottomSheet: Container(
+                color: ColorManager.white,
+                height: AppSize.kSize100,
+                child: Column(
+                  children: [
+                    Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.pushReplacementNamed(
+                              context,
+                              Routes.loginRoute,
+                            );
+                          },
+                          child: Text(
+                            AppStrings.skip,
+                            style: Theme.of(context).textTheme.titleSmall,
+                            textAlign: TextAlign.end,
+                          ),
+                        )),
+                    // add layout for indicator and arrows
+                    _getBottomSheetWidget(snapshot: snapshot),
+                  ],
+                ),
+              ),
+            ),
     );
   }
 
-  Widget _getBottomSheetWidget() {
+  Widget _getBottomSheetWidget({AsyncSnapshot<SliderViewData>? snapshot}) {
     return Container(
       color: ColorManager.primary,
       child: Row(
@@ -106,8 +109,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ),
               onTap: () {
                 // go to previous slide
+                _viewModel.goPrevious();
                 _pageController.animateToPage(
-                  _getPreviousIndex(),
+                  _viewModel.currentIndex,
                   duration: const Duration(milliseconds: DurationConstant.d300),
                   curve: Curves.bounceInOut,
                 );
@@ -118,10 +122,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           // circles indicator
           Row(
             children: [
-              for (int i = 0; i < _list.length; i++)
+              for (int i = 0; i < snapshot!.data!.numberOfSlider; i++)
                 Padding(
                   padding: const EdgeInsets.all(AppPadding.kPadding8),
-                  child: _getProperCircle(i, currentIndex),
+                  child: _getProperCircle(i, _viewModel.currentIndex),
                 ),
             ],
           ),
@@ -137,8 +141,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ),
               onTap: () {
                 // go to next slide
+                _viewModel.goNext();
                 _pageController.animateToPage(
-                  _getNextIndex(),
+                  _viewModel.currentIndex,
                   duration: const Duration(milliseconds: DurationConstant.d300),
                   curve: Curves.bounceInOut,
                 );

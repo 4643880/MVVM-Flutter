@@ -33,17 +33,28 @@ class OnBoardingViewModel
 
   @override
   void goNext() {
-    // TODO: implement goNext
+    int nextIndex = currentIndex++;
+    if (nextIndex >= _list.length) {
+      currentIndex = 0;
+    } else {
+      print("reached here");
+    }
+    _postDataToView();
   }
 
   @override
   void goPrevious() {
-    // TODO: implement goPrevious
+    int previousIndex = currentIndex--;
+    if (previousIndex == -1) {
+      currentIndex = _list.length - 1;
+    }
+    _postDataToView();
   }
 
   @override
   void onPageChange(int index) {
-    // TODO: implement onPageChange
+    currentIndex = index;
+    _postDataToView();
   }
 
   @override
@@ -79,8 +90,8 @@ class OnBoardingViewModel
   _postDataToView() {
     inputOfSliderData.add(
       SliderViewData(
-        sliderData: sliderData,
-        numberOfSlider: numberOfSlider,
+        sliderData: _list[currentIndex],
+        numberOfSlider: _list.length,
         currentIndex: currentIndex,
       ),
     );
