@@ -33,20 +33,22 @@ class OnBoardingViewModel
 
   @override
   void goNext() {
-    int nextIndex = currentIndex++;
+    int nextIndex = currentIndex + 1;
     if (nextIndex >= _list.length) {
       currentIndex = 0;
     } else {
-      print("reached here");
+      currentIndex = nextIndex;
     }
     _postDataToView();
   }
 
   @override
   void goPrevious() {
-    int previousIndex = currentIndex--;
+    int previousIndex = currentIndex - 1;
     if (previousIndex == -1) {
       currentIndex = _list.length - 1;
+    } else {
+      currentIndex = previousIndex;
     }
     _postDataToView();
   }
