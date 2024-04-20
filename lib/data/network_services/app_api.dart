@@ -14,5 +14,5 @@ abstract class AppNetworkServiceClient {
       _AppNetworkServiceClient;
 
   @POST("/customer/login")
-  Future<User> login();
+  Future<UserDataModel> login();
 }

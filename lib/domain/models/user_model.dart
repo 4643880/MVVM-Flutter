@@ -1,37 +1,37 @@
 class User {
-  int? status;
-  String? message;
-  Customer? customer;
-  Contacts? contacts;
+  int status;
+  String message;
+  Customer customer;
+  Contacts contacts;
 
   User({
-    this.status,
-    this.message,
-    this.customer,
-    this.contacts,
+    required this.status,
+    required this.message,
+    required this.customer,
+    required this.contacts,
   });
 }
 
 class Contacts {
-  String? phone;
-  String? weblink;
-  String? email;
+  String phone;
+  String weblink;
+  String email;
 
   Contacts({
-    this.phone,
-    this.weblink,
-    this.email,
+    required this.phone,
+    required this.weblink,
+    required this.email,
   });
 }
 
 class Customer {
-  String? id;
-  String? name;
-  int? numberofnotifications;
+  String id;
+  String name;
+  int numberofnotifications;
 
   Customer({
-    this.id,
-    this.name,
-    this.numberofnotifications,
+    required this.id,
+    required this.name,
+    required this.numberofnotifications,
   });
 }

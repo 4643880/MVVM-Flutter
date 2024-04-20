@@ -21,13 +21,13 @@ class _AppNetworkServiceClient implements AppNetworkServiceClient {
   String? baseUrl;
 
   @override
-  Future<User> login() async {
+  Future<UserDataModel> login() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result =
-        await _dio.fetch<Map<String, dynamic>>(_setStreamType<User>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<UserDataModel>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -43,7 +43,7 @@ class _AppNetworkServiceClient implements AppNetworkServiceClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = User.fromJson(_result.data!);
+    final value = UserDataModel.fromJson(_result.data!);
     return value;
   }
 

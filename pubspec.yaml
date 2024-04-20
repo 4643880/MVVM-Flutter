@@ -45,6 +45,7 @@ dependencies:
   json_serializable: ^6.7.1
   retrofit_generator: ^8.1.0
   get: ^4.6.6
+  json_annotation: ^4.8.1
 
 
 flutter_launcher_icons:

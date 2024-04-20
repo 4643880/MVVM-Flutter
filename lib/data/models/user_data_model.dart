@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'user_data_model.g.dart';
 
 @JsonSerializable()
-class User {
+class UserDataModel {
   @JsonKey(name: "status")
   int? status;
   @JsonKey(name: "message")
@@ -14,29 +14,30 @@ class User {
   @JsonKey(name: "contacts")
   Contacts? contacts;
 
-  User({
+  UserDataModel({
     this.status,
     this.message,
     this.customer,
     this.contacts,
   });
 
-  User copyWith({
+  UserDataModel copyWith({
     int? status,
     String? message,
     Customer? customer,
     Contacts? contacts,
   }) =>
-      User(
+      UserDataModel(
         status: status ?? this.status,
         message: message ?? this.message,
         customer: customer ?? this.customer,
         contacts: contacts ?? this.contacts,
       );
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory UserDataModel.fromJson(Map<String, dynamic> json) =>
+      _$UserDataModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$UserToJson(this);
+  Map<String, dynamic> toJson() => _$UserDataModelToJson(this);
 }
 
 @JsonSerializable()
