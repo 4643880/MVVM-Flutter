@@ -4,6 +4,9 @@ import 'package:mvvm_flutter_app/presentation/resources/colors_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/fonts_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/styles_manager.dart';
 
+// Differences
+// => AuthenticationResponse =  User
+
 class TestScreen extends StatelessWidget {
   const TestScreen({super.key});
 
