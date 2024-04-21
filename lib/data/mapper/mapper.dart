@@ -1,4 +1,4 @@
-// Using this to covert the a model into non nullable model
+// Using if for data transformation from one model to another model
 
 import 'package:mvvm_flutter_app/data/models/user_data_model.dart';
 import 'package:mvvm_flutter_app/domain/models/user_model.dart'
