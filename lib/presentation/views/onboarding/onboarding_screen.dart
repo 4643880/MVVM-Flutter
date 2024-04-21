@@ -7,7 +7,7 @@ import 'package:mvvm_flutter_app/presentation/resources/colors_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/routes_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/strings_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/values_manager.dart';
-import 'package:mvvm_flutter_app/presentation/screens/onboarding/onboarding_view_model.dart';
+import 'package:mvvm_flutter_app/presentation/views/onboarding/onboarding_view_model.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   @override

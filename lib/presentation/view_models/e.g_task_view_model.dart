@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:mvvm_flutter_app/data/models/e.g_task_data_model.dart';
+import 'package:mvvm_flutter_app/data/response_models/e.g_task_data_model.dart';
 import 'package:mvvm_flutter_app/domain/models/e.g_task_model.dart';
 import 'package:mvvm_flutter_app/domain/repositories/e.g_task_repository.dart';
 

@@ -6,7 +6,7 @@ import 'package:mvvm_flutter_app/domain/models/user_model.dart';
 
 abstract class Repository {
   // will send one of these two <Failure, UserDataModel>
-  Future<Either<Failure, UserDataModel>> login(LoginRequest loginRequest);
+  Future<Either<Failure, User>> login(LoginRequest loginRequest);
 }
 
 

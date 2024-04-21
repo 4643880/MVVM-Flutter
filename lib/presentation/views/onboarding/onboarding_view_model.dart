@@ -7,7 +7,7 @@ import 'package:mvvm_flutter_app/domain/models/onboarding_model.dart';
 import 'package:mvvm_flutter_app/presentation/base/base_view_model.dart';
 import 'package:mvvm_flutter_app/presentation/resources/assets_manager.dart';
 import 'package:mvvm_flutter_app/presentation/resources/strings_manager.dart';
-import 'package:mvvm_flutter_app/presentation/screens/onboarding/onboarding_screen.dart';
+import 'package:mvvm_flutter_app/presentation/views/onboarding/onboarding_screen.dart';
 
 class OnBoardingViewModel
     implements

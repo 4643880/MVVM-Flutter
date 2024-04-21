@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_flutter_app/presentation/resources/strings_manager.dart';
-import 'package:mvvm_flutter_app/presentation/screens/forgot_password/forgot_password_screen.dart';
-import 'package:mvvm_flutter_app/presentation/screens/home/home_screen.dart';
-import 'package:mvvm_flutter_app/presentation/screens/login/login_screen.dart';
-import 'package:mvvm_flutter_app/presentation/screens/onboarding/onboarding_screen.dart';
-import 'package:mvvm_flutter_app/presentation/screens/register/register_screen.dart';
-import 'package:mvvm_flutter_app/presentation/screens/splash/splash_screen.dart';
-import 'package:mvvm_flutter_app/presentation/screens/store_details/store_details.dart';
+import 'package:mvvm_flutter_app/presentation/views/forgot_password/forgot_password_screen.dart';
+import 'package:mvvm_flutter_app/presentation/views/home/home_screen.dart';
+import 'package:mvvm_flutter_app/presentation/views/login/login_screen.dart';
+import 'package:mvvm_flutter_app/presentation/views/onboarding/onboarding_screen.dart';
+import 'package:mvvm_flutter_app/presentation/views/register/register_screen.dart';
+import 'package:mvvm_flutter_app/presentation/views/splash/splash_screen.dart';
+import 'package:mvvm_flutter_app/presentation/views/store_details/store_details.dart';
 
 class Routes {
   static const String splashRoute = "/";
