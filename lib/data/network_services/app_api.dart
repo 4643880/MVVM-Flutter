@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mvvm_flutter_app/app/constants.dart';
-import 'package:mvvm_flutter_app/data/models/user_data_model.dart';
+import 'package:mvvm_flutter_app/data/response_models/user_data_model.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -14,5 +14,10 @@ abstract class AppNetworkServiceClient {
       _AppNetworkServiceClient;
 
   @POST("/customer/login")
-  Future<UserDataModel> login();
+  Future<UserDataModel> login({
+    @Field("username") required String username,
+    @Field("password") required String password,
+    @Field("imei") required String imei,
+    @Field("deviceType") required String deviceType,
+  });
 }

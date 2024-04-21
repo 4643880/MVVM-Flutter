@@ -21,11 +21,21 @@ class _AppNetworkServiceClient implements AppNetworkServiceClient {
   String? baseUrl;
 
   @override
-  Future<UserDataModel> login() async {
+  Future<UserDataModel> login({
+    required String username,
+    required String password,
+    required String imei,
+    required String deviceType,
+  }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = {
+      'username': username,
+      'password': password,
+      'imei': imei,
+      'deviceType': deviceType,
+    };
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<UserDataModel>(Options(
       method: 'POST',
