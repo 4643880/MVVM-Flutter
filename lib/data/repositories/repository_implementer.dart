@@ -21,9 +21,9 @@ class RepositoryImplementer implements Repository {
   });
 
   @override
-  Future<Either<Failure, User>> login(
-    LoginRequest loginRequest,
-  ) async {
+  Future<Either<Failure, User>> login({
+    required LoginRequest loginRequest,
+  }) async {
     // Checking internet availability
     if (await networkInfo.isConnected) {
       try {
