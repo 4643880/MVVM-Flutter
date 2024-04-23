@@ -8,4 +8,4 @@ void main() {
 
 // App Layer --> Presentation Layer (UI --> ViewModel) --> Domain Layer --> Data Layer 
 
-// AppNetworkServiceClient(api helper) --> RemoteDataSource --then-- (Network Info, Mapper & remoteDataSource) --> Repository Implementer --> Respository --> ViewModel --> UI 
+// AppNetworkServiceClient(api helper) --> RemoteDataSource --then-- (Network Info(net connection), Mapper & remoteDataSource) --> Repository Implementer --> Respository --> Use-Cases --> ViewModel --> UI 
