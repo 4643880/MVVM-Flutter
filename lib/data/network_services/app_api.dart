@@ -9,9 +9,10 @@ part 'app_api.g.dart';
 
 @RestApi(baseUrl: Constant.kBaseUrl)
 abstract class AppNetworkServiceClient {
-  // Retrofit Generator will generate .g file using build runner script
-  factory AppNetworkServiceClient(Dio dio, {required String baseUrl}) =
-      _AppNetworkServiceClient;
+  factory AppNetworkServiceClient(Dio dio, {required String baseUrl}) {
+    // _AppNetworkServiceClient is available in .g file
+    return _AppNetworkServiceClient(dio, baseUrl: baseUrl);
+  }
 
   @POST("/customer/login")
   Future<UserDataModel> login({
